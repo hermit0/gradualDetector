@@ -48,9 +48,12 @@ def make_dataset(root_path, sample_list_path, sample_duration):
                 label_mid = -3
                 label_e = -3 #设置成一个无效值
             else:
-                label_s = int(words[2])
-                label_mid = int(words[3])
-                label_e = int(words[4])
+                #label_s = int(words[2])
+                label_s = float(words[2])
+                #label_mid = int(words[3])
+                label_mid = float(words[3])
+                #label_e = int(words[4])
+                label_e = float(words[4])
             label =(label_s,label_mid,label_e)
             sample={'video_path':os.path.join(root_path,video_name),
                     'frame_no':frame_no,

@@ -46,6 +46,7 @@ def calculate_accuracy(outputs, targets):
     targets = targets.clone().to(dtype=torch.uint8)
     pred = outputs.gt(0.5)
     pred = pred.t()
+    pred = pred.ge(1)
     correct = pred.eq(targets.view(1, -1))
     n_correct_elems = correct.float().sum().item()
     #print('batch_size:{} n_correct_elems:{}'.format(batch_size,n_correct_elems))
